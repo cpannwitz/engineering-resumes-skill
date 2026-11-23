@@ -7,28 +7,29 @@ built on the r/EngineeringResumes wiki. Optional: publish it so others can insta
 
 ---
 
-## Phase 0 — Source material  ⏳ blocked on Chris
-- [ ] Save the wiki into `source/` (Claude can't fetch reddit.com). Options:
+## Phase 0 — Source material  ✅
+- [x] Save the wiki into `source/` (Claude can't fetch reddit.com). Options:
       browser "Save as" → PDF/HTML, or copy the page text into `source/wiki-index.md`.
       Include linked sub-pages that matter (e.g. bullet-writing / template pages).
 - [ ] `source/` is git-ignored: the wiki is third-party content. The skill **paraphrases**
       the rules in our own words and links back — no verbatim copy in the public repo.
 
-## Phase 1 — Repository  ⏳ partly blocked on Chris
+## Phase 1 — Repository  ✅ (license still open)
 - [x] Local folder `~/privatespace/engineering-resumes-skill` with skeleton
 - [x] `git init`, first commit
-- [ ] Chris: create **empty public** repo `cpannwitz/engineering-resumes-skill` on github.com
+- [x] Chris: create **empty public** repo `cpannwitz/engineering-resumes-skill` on github.com
       (no README/license, so the first push is clean)
-- [ ] Claude: attach repo, add remote, push
+- [x] Claude: attach repo, add remote, push
 - [ ] Choose a license (MIT suggested for the code/skill text)
 
 ## Phase 2 — Skill design (decisions)
 - [ ] Scope of modes: Create / Review / Improve (+ tailor-to-job-posting inside Improve?)
-- [ ] English résumé vs. German Lebenslauf — the wiki is US-centric (1 page, no photo,
-      no personal data). Decide: one skill with a `de` profile (photo, personal data,
-      tabular layout, signature/date conventions) or English-only first.
-- [ ] Output format: Markdown, LaTeX (ties into the berlin-job-search task: LaTeX via brew),
-      or both. Suggest: LaTeX template as the primary output, Markdown for quick drafts.
+- [x] **One skill, language-driven rules** (decided 2026-11-23): the CV's language — or the
+      target language/market if given — selects the rule set. English → wiki rules
+      (US/Canada). German → Lebenslauf conventions (`references/german-lebenslauf.md`),
+      with the wiki's content advice (bullets, impact, skills) still applying where it fits.
+- [x] **Output: LaTeX + Markdown** (decided 2026-11-23): LaTeX template for the final PDF
+      (local TeX via brew), Markdown for quick drafts and review reports.
 - [ ] Input formats for Review: PDF, DOCX, Markdown, pasted text.
 
 ## Phase 3 — Write the skill
