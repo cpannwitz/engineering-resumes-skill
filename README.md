@@ -30,7 +30,9 @@ PDF output needs a TeX installation, e.g. `brew install --cask mactex-no-gui` on
 [berlin-job-search](https://github.com/umutyesildal/berlin-job-search) — job search in Germany,
 posting evaluation, tailoring to a posting (`/apply`), Anschreiben and ATS checks. When it is
 installed, this skill defers to it for German application conventions and posting-specific
-tailoring.
+tailoring. Both share berlin-job-search's `job-search/cv.md` as the master CV. To make `/apply`
+use this skill's bullet rules and LaTeX output reliably, add the rules from SKILL.md §7 to the
+`CLAUDE.md` of the folder you run the job search in.
 
 ## Layout
 

@@ -88,6 +88,25 @@ Languages line with the German level.
    If the user doesn't want TeX, deliver the Markdown and stop.
 5. Optional ATS check: if berlin-job-search is available, run its `scripts/ats_check.py` on the PDF.
 
+## 7. Working with berlin-job-search
+
+When both skills are installed, they share one fact file: berlin-job-search's
+`job-search/cv.md` (master CV, single source of facts).
+
+| Task | Who does what |
+|---|---|
+| Review a CV, no posting | This skill's Review mode → berlin-job-search `scripts/ats_check.py <pdf> --type cv` |
+| Build or refresh the master CV | This skill's Improve mode → write `job-search/cv.md` in the shape of `templates/resume-en.md` (same as berlin-job-search `assets/cv-template-en.md`) → render general EN/DE PDFs (§6) |
+| Profile, job search, posting evaluation | berlin-job-search (`/setup`, `/jobs`, `/evaluate`) |
+| Tailor to a posting (`/apply`) | berlin-job-search runs the workflow. If this skill is loaded during it: apply `references/bullets.md` (EN) or `references/german-lebenslauf.md` (DE) in the writer pass, add checklist sections E and F to its reviewer pass, and offer a LaTeX render (§6) of the final CV followed by `ats_check.py --jd` |
+
+berlin-job-search wins on German application conventions, truthfulness and safety; this skill
+wins on bullet wording and layout. When the user supplies a new fact, add it to
+`job-search/cv.md` first so later applications can use it.
+
+For guaranteed use during `/apply`, put these rules in the workspace's `CLAUDE.md`. A
+command's own instructions take priority over skills that happen to be loaded.
+
 ## Rules that always apply
 
 - **Honesty:** never invent or inflate. Every claim traces to something the user said or
