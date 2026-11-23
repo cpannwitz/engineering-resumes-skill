@@ -1,0 +1,5 @@
+# Raw copies of the r/EngineeringResumes wiki (third-party content, kept local only)
+source/
+# Personal CVs used for testing — never publish
+test-cvs/
+.DS_Store
