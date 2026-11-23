@@ -14,13 +14,13 @@ built on the r/EngineeringResumes wiki. Optional: publish it so others can insta
 - [ ] `source/` is git-ignored: the wiki is third-party content. The skill **paraphrases**
       the rules in our own words and links back — no verbatim copy in the public repo.
 
-## Phase 1 — Repository  ✅ (license still open)
+## Phase 1 — Repository  ✅
 - [x] Local folder `~/privatespace/engineering-resumes-skill` with skeleton
 - [x] `git init`, first commit
 - [x] Chris: create **empty public** repo `cpannwitz/engineering-resumes-skill` on github.com
       (no README/license, so the first push is clean)
 - [x] Claude: attach repo, add remote, push
-- [ ] Choose a license (MIT suggested for the code/skill text)
+- [x] License: MIT (same as berlin-job-search)
 
 ## Phase 2 — Skill design (decisions)
 - [x] Scope of modes: Create / Review / Improve; job-posting tailoring is delegated to
@@ -31,7 +31,7 @@ built on the r/EngineeringResumes wiki. Optional: publish it so others can insta
       with the wiki's content advice (bullets, impact, skills) still applying where it fits.
 - [x] **Output: LaTeX + Markdown** (decided 2026-11-23): LaTeX template for the final PDF
       (local TeX via brew), Markdown for quick drafts and review reports.
-- [ ] Input formats for Review: PDF, DOCX, Markdown, pasted text.
+- [x] Input formats for Review: PDF (text + page image), DOCX (pandoc), Markdown/LaTeX, pasted text
 
 ## Companion skill — berlin-job-search
 Repo: https://github.com/umutyesildal/berlin-job-search (MIT, v0.2.0). Installed separately in
@@ -54,7 +54,7 @@ Claude Code; our skill complements it instead of duplicating it.
 - Open: can our LaTeX template be a render target for its `/apply` output? (relates to the
   TickTick task "Install Claude Code Skill berlin-job-search").
 
-## Phase 3 — Write the skill
+## Phase 3 — Write the skill  ✅ v0.1.0
 Layout (progressive disclosure — SKILL.md stays short, details live in references/):
 ```
 skills/engineering-resume/
@@ -69,20 +69,24 @@ skills/engineering-resume/
     resume.tex                 # LaTeX template (or link to recommended one)
     resume.md
 ```
-- [ ] Distill wiki → references (paraphrased, with source links)
-- [ ] Workflows: Create (interview → draft), Review (checklist → findings ranked by impact),
+- [x] Distill wiki → references (paraphrased, with source links)
+- [x] Workflows: Create (interview → draft), Review (checklist → findings ranked by impact),
       Improve (rewrite bullets, before/after)
-- [ ] Use `skill-creator` guidance for the description/trigger wording
+- [x] Description/trigger wording
+- [x] LaTeX templates compile with pdflatex (no babel/mathdesign needed, BasicTeX-friendly)
 
 ## Phase 4 — Test
-- [ ] Run Review on Chris's own CVs (English + German PDFs from the job-search project);
+- [x] Run Review on Chris's own CVs (English + German PDFs from the job-search project);
       keep test files in git-ignored `test-cvs/`
+      - EN reviewed 2026-11-23 (6/22) → found gap: studies without degree → rule added
+      - DE pending: German CV still has placeholder bullets for the current role
+- [ ] Install the plugin locally from GitHub and test it inside Claude Code (Chris)
 - [ ] Run Create from scratch with a fictional profile
 - [ ] Iterate on SKILL.md until results are consistent; commit each iteration
 
 ## Phase 5 — Publish
-- [ ] README: what it does, install, examples, credits
-- [ ] Make the repo a Claude Code plugin marketplace (`.claude-plugin/marketplace.json`)
+- [x] README: what it does, install, examples, credits
+- [x] Make the repo a Claude Code plugin marketplace (`.claude-plugin/marketplace.json`)
       so others can install with `/plugin marketplace add cpannwitz/engineering-resumes-skill`
 - [ ] Optional: submit to community skill/plugin directories
 - [ ] Optional: tell r/EngineeringResumes mods (they may want to link it — or object)

@@ -1,0 +1,81 @@
+% engineering-resume — English résumé template (single column, ATS-friendly)
+% Build: latexmk -pdf resume-en.tex   (or: pdflatex resume-en.tex)
+% Rules: references/formatting.md, references/sections.md, references/bullets.md
+\documentclass[11pt,letterpaper]{article} % use a4paper for Europe
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{charter} % Bitstream Charter (psnfss); alternative: \usepackage{lmodern}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\linespread{1.07}
+\raggedright
+\hyphenpenalty=10000 \exhyphenpenalty=10000 % no hyphenated line breaks
+
+% Section headings: bold, rule underneath, no indentation
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-0.6ex}\rule{\linewidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{1.6ex}{1ex}
+
+% Bullets at the left margin, compact but not cramped
+\setlist[itemize]{leftmargin=1.2em, itemsep=0.2ex, topsep=0.3ex, parsep=0pt, label=\textbullet}
+
+% \entry{Title}{Dates}{Organisation}{Location}
+\newcommand{\entry}[4]{%
+  \textbf{#1} \hfill #2\\
+  #3\ifx&#4&\else, #4\fi\par\vspace{0.2ex}}
+% \project{Name}{link}
+\newcommand{\project}[2]{%
+  \textbf{#1}\ifx&#2&\else\ \textbar\ \href{https://#2}{#2}\fi\par\vspace{0.2ex}}
+% \edu{Degree}{Date}{Institution}
+\newcommand{\edu}[3]{\textbf{#1} \hfill #2\\ #3\par}
+
+\begin{document}
+
+% ---------- Header: plain text, no labels, no https://www ----------
+\begin{center}
+  {\LARGE\textbf{First Last}}\\[0.6ex]
+  name@example.com \quad
+  \href{https://github.com/username}{github.com/username} \quad
+  \href{https://name.dev}{name.dev}
+\end{center}
+
+% Summary only for senior/staff, career change, or gap — max 2 sentences.
+% \section{Summary}
+% Backend engineer with 10 years building payment systems ...
+
+\section{Experience}
+
+\entry{Senior Software Engineer}{Mar 2022 -- Present}{Example GmbH}{Berlin, Germany}
+\begin{itemize}
+  \item Reduced p95 API latency 40\% by replacing N+1 ORM queries with batched loaders in a GraphQL gateway serving 2M requests per day
+  \item Designed an event pipeline on Kafka that replaced nightly batch jobs, cutting data freshness from 24 hours to 5 minutes
+\end{itemize}
+\vspace{0.6ex}
+
+\entry{Software Engineer}{Sept 2018 -- Feb 2022}{Beispiel AG}{Dresden, Germany}
+\begin{itemize}
+  \item Built a TypeScript component library adopted by 6 product teams, removing 30\% of duplicated UI code
+\end{itemize}
+
+\section{Projects}
+
+\project{Price Alert}{github.com/username/price-alert}
+\begin{itemize}
+  \item Built a Next.js app that polls 14k stations every 10 minutes and alerts users when prices drop below a threshold
+\end{itemize}
+
+\section{Skills}
+\textbf{Languages:} TypeScript, Python, Go, SQL\\
+\textbf{Frameworks:} React, Next.js, Node.js, FastAPI\\
+\textbf{Cloud and DevOps:} AWS, Docker, Kubernetes, Terraform, GitHub Actions
+
+\section{Education}
+\edu{Bachelor of Science, Computer Science}{2018}{Example University of Technology}
+
+\end{document}

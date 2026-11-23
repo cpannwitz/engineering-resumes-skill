@@ -1,0 +1,22 @@
+{
+  "name": "engineering-resumes",
+  "owner": {
+    "name": "Christian Pannwitz",
+    "url": "https://github.com/cpannwitz"
+  },
+  "version": "0.1.0",
+  "description": "Engineering résumé and Lebenslauf skill based on the r/EngineeringResumes wiki.",
+  "plugins": [
+    {
+      "name": "engineering-resumes",
+      "source": "./",
+      "version": "0.1.0",
+      "description": "Create, review and improve engineering CVs (EN résumé and DE Lebenslauf) with LaTeX output.",
+      "category": "productivity",
+      "author": {
+        "name": "Christian Pannwitz",
+        "url": "https://github.com/cpannwitz"
+      }
+    }
+  ]
+}

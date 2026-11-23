@@ -1,14 +1,51 @@
 # engineering-resumes-skill
 
-A Claude Code skill to **create, review and improve** engineering CVs (English résumé and German Lebenslauf),
-based on the guidelines of the [r/EngineeringResumes wiki](https://www.reddit.com/r/EngineeringResumes/wiki/index/).
+A Claude Code skill to **create, review and improve** engineering CVs — English résumés and
+German Lebensläufe — based on the guidelines of the
+[r/EngineeringResumes wiki](https://www.reddit.com/r/EngineeringResumes/wiki/index/).
 
-> Status: work in progress — see [PLAN.md](PLAN.md).
+- **Create** — interviews you role by role and drafts a CV in Markdown
+- **Review** — scores your CV against a 10-area checklist and ranks fixes by impact
+- **Improve** — rewrites bullets (impact, metrics, strong verbs) without inventing anything
+- **Language-aware** — English CVs follow the wiki (US/Canada style); German CVs follow
+  Lebenslauf conventions (tabular, MM/YYYY, Sprachen with CEFR levels, optional photo)
+- **LaTeX output** — clean single-column templates for EN and DE, compiled and checked for
+  page count, orphan words and hyphenation
 
-## Install
+## Install (Claude Code)
 
-_Coming soon (Claude Code plugin marketplace)._
+```text
+/plugin marketplace add cpannwitz/engineering-resumes-skill
+/plugin install engineering-resumes@engineering-resumes
+```
+
+Then: *"Review my CV"* (attach or point to a PDF), *"Help me write a résumé for backend roles"*,
+or *"Überarbeite meinen Lebenslauf"*.
+
+PDF output needs a TeX installation, e.g. `brew install --cask mactex-no-gui` on macOS
+(or BasicTeX plus `sudo tlmgr install enumitem titlesec latexmk`).
+
+## Works well with
+
+[berlin-job-search](https://github.com/umutyesildal/berlin-job-search) — job search in Germany,
+posting evaluation, tailoring to a posting (`/apply`), Anschreiben and ATS checks. When it is
+installed, this skill defers to it for German application conventions and posting-specific
+tailoring.
+
+## Layout
+
+```
+skills/engineering-resume/
+  SKILL.md                    workflows: rule-set choice, Create, Review, Improve, render
+  references/                 formatting, sections, bullets, german-lebenslauf, review-checklist
+  templates/                  resume-en.{md,tex}, lebenslauf-de.{md,tex}
+```
 
 ## Credits
 
-Guidelines summarised and adapted from the r/EngineeringResumes community wiki. This project is not affiliated with Reddit or the subreddit moderators.
+Guidelines summarised and adapted from the r/EngineeringResumes community wiki; see
+[NOTICE.md](NOTICE.md). Not affiliated with Reddit or the subreddit moderators.
+
+## License
+
+MIT

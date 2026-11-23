@@ -1,0 +1,89 @@
+% engineering-resume — Lebenslauf-Vorlage (tabellarisch, einspaltig lesbar, ATS-tauglich)
+% Build: latexmk -pdf lebenslauf-de.tex   (oder: pdflatex lebenslauf-de.tex)
+% Regeln: references/german-lebenslauf.md (+ applications-germany.md aus berlin-job-search)
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% \usepackage[ngerman]{babel} % optional: German hyphenation and \today (needs babel-german)
+\usepackage{charter}
+\usepackage[margin=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx} % nur für optionales Foto
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\linespread{1.07}
+\raggedright
+\hyphenpenalty=10000 \exhyphenpenalty=10000 % no hyphenated line breaks
+
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-0.6ex}\rule{\linewidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{1.8ex}{1ex}
+\setlist[itemize]{leftmargin=1.1em, itemsep=0.2ex, topsep=0.2ex, parsep=0pt, label=\textbullet}
+
+% Linke Datumsspalte + rechte Inhaltsspalte
+\newlength{\datecol}\setlength{\datecol}{3.8cm}
+\newlength{\gutter}\setlength{\gutter}{0.4cm}
+% \cventry{Zeitraum}{Titel}{Organisation, Ort}{Inhalt (z. B. itemize)}
+\newcommand{\cventry}[4]{%
+  \noindent\begin{minipage}[t]{\datecol}\raggedright #1\end{minipage}%
+  \hspace{\gutter}%
+  \begin{minipage}[t]{\dimexpr\linewidth-\datecol-\gutter\relax}\raggedright
+    \textbf{#2}\\ #3\par
+    #4
+  \end{minipage}\par\vspace{1.2ex}}
+% \cvline{Label}{Text}
+\newcommand{\cvline}[2]{%
+  \noindent\begin{minipage}[t]{\datecol}\raggedright #1\end{minipage}%
+  \hspace{\gutter}%
+  \begin{minipage}[t]{\dimexpr\linewidth-\datecol-\gutter\relax}\raggedright #2\end{minipage}\par\vspace{0.6ex}}
+
+\begin{document}
+
+% ---------- Kopf ----------
+% Foto optional (traditionelle Arbeitgeber); für internationale Tech-Firmen meist weglassen.
+% \begin{minipage}[t]{0.72\linewidth}
+{\LARGE\textbf{Vorname Nachname}}\\[0.5ex]
+Senior Software Engineer\\[0.8ex]
+name@example.de \quad +49 351 5550000 \quad Dresden\\
+\href{https://linkedin.com/in/example}{linkedin.com/in/example} \quad
+\href{https://github.com/example}{github.com/example}
+% \end{minipage}\hfill
+% \begin{minipage}[t]{0.22\linewidth}\raggedleft\includegraphics[width=\linewidth]{foto.jpg}\end{minipage}
+
+\section{Kurzprofil}
+Full-Stack-Entwickler mit 8 Jahren Erfahrung in TypeScript und Cloud-Infrastruktur, Schwerpunkt
+skalierbare Web-Plattformen und technische Teamleitung.
+
+\section{Berufserfahrung}
+
+\cventry{03/2022 -- heute}{Senior Software Engineer}{Beispiel GmbH, Berlin}{%
+\begin{itemize}
+  \item Senkte die p95-Latenz der API um 40\,\% durch gebündelte Datenbankabfragen in einem stark frequentierten GraphQL-Gateway
+  \item Führte ein Team von 4 Entwickler:innen bei der Migration auf Kubernetes ohne Ausfallzeit
+\end{itemize}}
+
+\cventry{09/2018 -- 02/2022}{Software Engineer}{Muster AG, Dresden}{%
+\begin{itemize}
+  \item Entwickelte eine TypeScript-Komponentenbibliothek für 6 Produktteams und reduzierte doppelten UI-Code um 30\,\%
+\end{itemize}}
+
+\section{Ausbildung}
+\cventry{10/2014 -- 09/2018}{B.Sc. Informatik}{Beispiel-Hochschule, Dresden}{%
+Abschlussnote 1,7 \textperiodcentered{} Bachelorarbeit: Echtzeit-Synchronisation verteilter Datenmodelle}
+
+\section{Kenntnisse}
+\cvline{Sprachen (IT)}{TypeScript, Python, Go, SQL}
+\cvline{Frameworks}{React, Next.js, Node.js, FastAPI}
+\cvline{Cloud \& DevOps}{AWS, Docker, Kubernetes, Terraform, GitHub Actions}
+
+\section{Sprachen}
+\cvline{Deutsch}{Muttersprache}
+\cvline{Englisch}{verhandlungssicher (C1)}
+
+% Optional, traditionell: Ort, Datum und Unterschrift
+% \vspace{3ex}Dresden, 23.11.2026
+
+\end{document}

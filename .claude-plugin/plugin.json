@@ -1,0 +1,15 @@
+{
+  "name": "engineering-resumes",
+  "displayName": "Engineering Resumes",
+  "version": "0.1.0",
+  "description": "Create, review and improve engineering CVs (English résumé and German Lebenslauf) based on the r/EngineeringResumes wiki, with LaTeX output.",
+  "author": {
+    "name": "Christian Pannwitz",
+    "url": "https://github.com/cpannwitz"
+  },
+  "homepage": "https://github.com/cpannwitz/engineering-resumes-skill",
+  "repository": "https://github.com/cpannwitz/engineering-resumes-skill",
+  "license": "MIT",
+  "keywords": ["resume", "cv", "lebenslauf", "engineering", "latex", "career"],
+  "skills": ["./skills/engineering-resume"]
+}
