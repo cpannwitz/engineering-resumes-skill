@@ -23,7 +23,8 @@ built on the r/EngineeringResumes wiki. Optional: publish it so others can insta
 - [ ] Choose a license (MIT suggested for the code/skill text)
 
 ## Phase 2 — Skill design (decisions)
-- [ ] Scope of modes: Create / Review / Improve (+ tailor-to-job-posting inside Improve?)
+- [x] Scope of modes: Create / Review / Improve; job-posting tailoring is delegated to
+      berlin-job-search `/apply` (see Companion skill)
 - [x] **One skill, language-driven rules** (decided 2026-11-23): the CV's language — or the
       target language/market if given — selects the rule set. English → wiki rules
       (US/Canada). German → Lebenslauf conventions (`references/german-lebenslauf.md`),
@@ -31,6 +32,27 @@ built on the r/EngineeringResumes wiki. Optional: publish it so others can insta
 - [x] **Output: LaTeX + Markdown** (decided 2026-11-23): LaTeX template for the final PDF
       (local TeX via brew), Markdown for quick drafts and review reports.
 - [ ] Input formats for Review: PDF, DOCX, Markdown, pasted text.
+
+## Companion skill — berlin-job-search
+Repo: https://github.com/umutyesildal/berlin-job-search (MIT, v0.2.0). Installed separately in
+Claude Code; our skill complements it instead of duplicating it.
+
+| Concern | Owner |
+|---|---|
+| CV craft: layout, section order, bullet formula, action verbs, review checklist (wiki) | **engineering-resume** |
+| LaTeX output (final PDF via local TeX) | **engineering-resume** |
+| Germany-specific rules: Lebenslauf conventions, photo/personal data, Anschreiben, submission, Arbeitszeugnis (`references/applications-germany.md`) | **berlin-job-search** |
+| Job search, posting evaluation, tailoring to a posting (`/apply`), ATS check (`ats_check.py`), Markdown→PDF render, tracking | **berlin-job-search** |
+
+- German mode: if berlin-job-search is installed, defer to its `applications-germany.md` for
+  Lebenslauf conventions and apply our wiki-based content rules on top. Ship a short fallback
+  `references/german-lebenslauf.md` for users without it (adapt with MIT attribution in NOTICE.md
+  if we reuse its wording).
+- "Tailor to a posting" → hand off to berlin-job-search `/apply` rather than rebuilding it.
+- Reuse its `assets/cv-template-en.md` / `lebenslauf-template-de.md` structure as the Markdown
+  shape, so drafts move between both skills without conversion.
+- Open: can our LaTeX template be a render target for its `/apply` output? (relates to the
+  TickTick task "Install Claude Code Skill berlin-job-search").
 
 ## Phase 3 — Write the skill
 Layout (progressive disclosure — SKILL.md stays short, details live in references/):
